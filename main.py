@@ -69,7 +69,31 @@ if moto == "2":
         vely += accy/30
         redDot.set_data(x, y)
         return redDot,
-#if moto == "3":
+
+if moto == "3":
+    x = int(input("Posizione iniziale sull'asse X: "))
+    y = int(input("Posizione iniziale sull'asse Y: "))
+    velx = int(input("Velocità sull'asse X: "))
+    vely = int(input("Velocità sull'asse Y: "))
+    accx = int(input("Accelerazione sull'asse X: "))
+    accy = int(input("Accelerazione sull'asse Y: "))
+    tempo = int(input("Per quanto tempo dura il moto: "))
+    xin, yin, velxin, velyin = x, y, velx, vely
+    def animate(i):
+        global x, y, velx, vely, tempo, accx, accy
+        x += velx/30
+        y += vely/30
+        velx += accx/30
+        vely += vely/30
+        if x>=xin+velxin*tempo+0.5*accx*tempo*tempo and y>=yin+velyin*tempo+0.5*accy*tempo*tempo:
+            redDot. set_data(xin+velxin*tempo+0.5*accx*tempo*tempo, yin+velyin*tempo+0.5*accy*tempo*tempo)
+        elif x>=xin+velxin*tempo+0.5*accx*tempo*tempo:
+            redDot.set_data(xin+velxin*tempo+0.5*accx*tempo*tempo, y)
+        elif y>=yin+velyin*tempo+0.5*accy*tempo*tempo:
+            redDot.set_data(x, yin+velyin*tempo+0.5*accy*tempo*tempo)
+        else: 
+            redDot.set_data(x, y)
+        return redDot,
 
 myAnimation = animation.FuncAnimation(fig, animate, \
                                       interval=10, blit=True, repeat=True)
