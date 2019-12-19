@@ -46,7 +46,7 @@ def animate(i):
 
 myAnimation = animation.FuncAnimation(fig, animate, \
                                     interval=10, blit=True, repeat=True)
-print('La posizione finale sulla X è: ' + str(maxX))
-print('La posizione più alta sulla Y è: ' + str(maxY))
+print('La posizione finale sulla X è: ' + str(round(maxX, 2)))
+print('La posizione più alta sulla Y è: ' + str(round(maxY, 2)))
 
 plt.show()
